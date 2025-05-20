@@ -1,0 +1,61 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+TODO: \
+- Batt @ 100% not working well, must test with real bike and battery.\
+- Change default setup to standard , it is now solar for me.  - decide if we keep location time,\
+- Check if on mac it has a subdirectory\
+- change the name of demoData , with one demo for preview, and on standard yo use in the app\
+\
+Should Do:\
+- Verify all firmware.\
+- Remove print  or add my old debut print and verify console \
+- In SetupEditView - info for file Saving must be updated to correct \
+- Lot's of testing  \
+- ReturnDataConfiguration by default,  it is currently standard  but might be ok if all firmware has the same output as standard \
+- Maybe, put path for deviceDetailVoiew\
+- If app quit/stop  for any reason stop locationUpdate\
+- Add Path to DeciveDetailView\
+\
+Nice to have: \
+- Rename some of the badly name var and func \
+- Move hard coded String to Constant \
+- GPS use more battery, do a test to compare, and maybe propose to turn off \
+- In flexible chart, allow  2 series  with one on each side, and if 3 or more, graph from 0-100% to have consistant graph  \
+- In RideDataListView. allow Edit and Export \
+- 
+\f1\fs26 Check function that don\'92t return output , try to make func more independent\
+
+\f0\fs24 - 
+\f1\fs26 Check to remove global var  in class \
+
+\f0\fs24 - Chart click on graph should show value \
+\
+Maybe Later\
+- Create test value for display for preview \
+- CoreLocation, IF speed at zero for a long time, and solar panel close to zero propose to pause data, in case the person forget about the app \
+- Simulation with data that varies, exemple do up for distance, up and down  speed, etc   \
+- Simulation does not have GPS, maybe turn it on  \
+- UnComment code to  send back command to bluefeather, could be good for light of stop changing etc\
+\
+\
+ReCode\
+- only save CA + GPS in data, it will faster, use less energy,  All other can be recreate if we re-order  the step when new data arrive and when we get data from iCloud, we pass it through the needed step \
+\
+\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f1\fs26 \cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+}
