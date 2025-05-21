@@ -19,11 +19,10 @@ struct InfoView: View {
                     .padding()
                 FeedbackView()
                     .padding()
-                
-                
+            
 //                DisclosureGroup("App Description") {  Information() }
 //                DisclosureGroup("Feedback") {  FeedbackView() }
- 
+
             }
             .frame(maxWidth: .infinity)
             

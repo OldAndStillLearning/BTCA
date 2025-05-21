@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E8FE9D612DDE12CE0007643B /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = E8FE9D602DDE12BA0007643B /* Readme.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		E89A59A82DCAE677001BC01B /* BTCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8FE9D602DDE12BA0007643B /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -47,6 +52,7 @@
 			children = (
 				E89A59AA2DCAE677001BC01B /* BTCA */,
 				E89A59A92DCAE677001BC01B /* Products */,
+				E8FE9D602DDE12BA0007643B /* Readme.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8FE9D612DDE12CE0007643B /* Readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
