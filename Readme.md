@@ -1,2 +1,5 @@
+# BTCA
+#### BlueTooth Cycle Analyst
 
-BTCA BlueTooth Cycle Analyst V2.001
+An app to display Cycle Analyst Data on your iPhone.
+You need to build your own serial to UART bluetooth emitter
