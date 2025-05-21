@@ -1,6 +1,6 @@
 //
 //  MainView.swift
-//  SetupEnvironmentManagerNoSetup
+//  BTCA
 //
 //  Created by call151 on 2025-04-02.
 //
@@ -68,6 +68,8 @@ struct MainView: View {
                                     .font(.system(size: 15))
                                 BluetoothButtonView()   }  }  }
                     
+                    Text("")    
+                    
                     Section(header: Text("Grid")) {
                         VStack {
                             HStack {
@@ -119,7 +121,7 @@ struct MainView: View {
                         }
                     }
 
-                    Text("")
+                    
                     Text("")
                     
                     Section(header: Text("INFO")) {
