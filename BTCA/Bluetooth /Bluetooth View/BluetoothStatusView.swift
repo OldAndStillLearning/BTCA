@@ -1,6 +1,6 @@
 //
 //  BluetoothStatusView2.swift
-//  SetupEnvironmentManagerNoSetup
+//  BTCA
 //
 //  Created by call151 on 2025-05-04.
 //

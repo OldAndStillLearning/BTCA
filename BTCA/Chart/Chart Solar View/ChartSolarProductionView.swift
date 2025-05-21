@@ -1,6 +1,6 @@
 //
 //  ChartSolarProductionView.swift
-//  SetupEnvironmentManagerNoSetup
+//  BTCA
 //
 //  Created by call151 on 2025-05-01.
 // a lot's of help from chatGPT
