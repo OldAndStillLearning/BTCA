@@ -316,7 +316,6 @@ class DisplayPreference: Codable {
     
     func positionDefaultSolar() -> [RideDataEnum: Int] {
         var temp = [RideDataEnum: Int]()
-        print ("Biz Solar ")
  
         temp[RideDataEnum.speed] = 0
         temp[RideDataEnum.batteryLevelPercent] = 1

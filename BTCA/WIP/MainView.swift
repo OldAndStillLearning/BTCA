@@ -35,7 +35,7 @@ struct MainView: View {
                                 }.frame(maxWidth: .infinity)
                                     .buttonStyle3Blue()
                                 
-                                Button("deviceList") {
+                                Button("DeviceList") {
                                     path.append(.deviceListView)
                                 }.frame(maxWidth: .infinity)
                                     .buttonStyle3Blue()
