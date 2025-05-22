@@ -1,5 +1,5 @@
 //
-//  MetricOrStandardEnum.swift
+//  MetricOrImperialdEnum.swift
 //  BTCA
 //
 //  Created by call151 on 2025-05-19.
@@ -34,7 +34,7 @@ enum TemperatureEnum: String, CaseIterable, Codable, Identifiable {
 
 enum IPhoneEnum: String, CaseIterable, Codable, Identifiable {
     case metric = "metric"
-    case standard = "standard"
+    case imperial = "imperial"
 
     var id: String { rawValue }
 }

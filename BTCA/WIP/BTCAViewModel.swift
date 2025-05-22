@@ -352,11 +352,11 @@ class BTCAViewModel {
     //_______________________________________________________________________________________________________
     //--
     //--
-    //-- MARK:               MetricOrStandard
+    //-- MARK:               MetricOrImperial
     //--
     //_______________________________________________________________________________________________________
     
-    func metricOrStandardChanged() {
+    func metricOrImperialChanged() {
         resetUnit()
     }
     

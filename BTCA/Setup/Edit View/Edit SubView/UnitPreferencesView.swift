@@ -23,7 +23,7 @@ struct UnitPreferencesView: View {
             .pickerStyle(.segmented)
             .onChange(of: setup.distanceEnum) {
                 setup.save()
-                metricOrStandardChanged()
+                metricOrImperialChanged()
             }
             
             
@@ -35,7 +35,7 @@ struct UnitPreferencesView: View {
             .pickerStyle(.segmented)
             .onChange(of: setup.speedEnum) {
                 setup.save()
-                metricOrStandardChanged()
+                metricOrImperialChanged()
             }
             
             
@@ -47,7 +47,7 @@ struct UnitPreferencesView: View {
             .pickerStyle(.segmented)
             .onChange(of: setup.temperatureEnum) {
                 setup.save()
-                metricOrStandardChanged()
+                metricOrImperialChanged()
             }
             
             Text("")
@@ -62,7 +62,7 @@ struct UnitPreferencesView: View {
             .pickerStyle(.segmented)
             .onChange(of: setup.iPhoneEnum) {
                 setup.save()
-                metricOrStandardChanged()
+                metricOrImperialChanged()
             }
             
             
@@ -72,8 +72,8 @@ struct UnitPreferencesView: View {
 
     }
     
-    func metricOrStandardChanged() {
-        viewModel.metricOrStandardChanged()
+    func metricOrImperialChanged() {
+        viewModel.metricOrImperialChanged()
     }
     
 }

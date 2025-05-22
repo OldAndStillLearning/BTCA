@@ -4,7 +4,7 @@
 
 An app to display Cycle Analyst Data on your iPhone. 
 You need to build your own serial to UART Bluetooth emitter
-it is multiplaform mostly to be able to study graph on a Mac or iPad instead of an iPhone. 
+it is multiplaform, mostly to be able to study graph on a Mac or iPad instead of an iPhone. 
 
 *release* 2.001 *Plaform* iPhone, iPad, Mac *Language* SwiftUI 
 
@@ -33,7 +33,7 @@ if you dont want data sync through cellular, you can turn cellular off the BTCA 
 
   
 #### GridView
-in GridView, at the bottom, you have 3 differents way to display the data. You can reorder the cell. The default GridView order in solar is a little bit different than inthe standard 
+in GridView, at the bottom, you have 3 differents way to display the data. You can reorder the cell. The default GridView order in solar is a little bit different than in the standard firmware
 
 You can change the color of cell in the DisplayPreference view. You can also change the title Text at top of each cell, and the unit text at the bottom. You can also change the number of digit after the dot.  
 
@@ -96,6 +96,6 @@ MainView
 BTCAView Model is the Central Class - most call goes through it 
 MainView is the starting view 
 
-the RideDataModel is where all received data from Cycle Analyst and calculated data are store. That what's is sync throuhg icloud. 
+the RideDataModel is where all received data from Cycle Analyst and calculated data are store. That what's is sync through iCloud. 
 
 ... more to come
