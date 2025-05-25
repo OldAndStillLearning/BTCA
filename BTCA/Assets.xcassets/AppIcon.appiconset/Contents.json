@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "mac1024.png",
+      "filename" : "appstore1024 2.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +13,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "mac1024 1.png",
+      "filename" : "appstore1024 1.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -25,67 +25,67 @@
           "value" : "tinted"
         }
       ],
-      "filename" : "mac1024 2.png",
+      "filename" : "appstore1024.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
     },
     {
-      "filename" : "mac16.png",
+      "filename" : "appstore16.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "16x16"
     },
     {
-      "filename" : "mac32 1.png",
+      "filename" : "appstore32 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "16x16"
     },
     {
-      "filename" : "mac32.png",
+      "filename" : "appstore32.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "32x32"
     },
     {
-      "filename" : "mac64.png",
+      "filename" : "appstore1024 copy.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
     },
     {
-      "filename" : "mac128.png",
+      "filename" : "appstore128.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
     },
     {
-      "filename" : "mac256 1.png",
+      "filename" : "appstore256 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
     },
     {
-      "filename" : "mac256.png",
+      "filename" : "appstore256.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "256x256"
     },
     {
-      "filename" : "mac512 1.png",
+      "filename" : "appstore512 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
     },
     {
-      "filename" : "mac512.png",
+      "filename" : "appstore512.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
-      "filename" : "mac1024 3.png",
+      "filename" : "appstore1024 3.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"

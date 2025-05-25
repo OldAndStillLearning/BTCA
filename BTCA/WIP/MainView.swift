@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State private var viewModel = BTCAViewModel()
     @State private var selectedDisplayStyle: CellStyle = CellStyle.loadFromUserDefaults()
     @State private var path: [Screen] = [] // Global path for ALL navigation
@@ -70,7 +71,7 @@ struct MainView: View {
                     
                     Text("")    
                     
-                    Section(header: Text("Grid")) {
+                    Section(header: Text("Grid").font(.title)) {
                         VStack {
                             HStack {
                                 Button("Grid View") {
@@ -85,6 +86,8 @@ struct MainView: View {
                                 Button("Reset Position", action: resetPosition)
                                     .frame(maxWidth: .infinity)
                                     .buttonStyleGreen()
+                                
+                                
                             }
                             Toggle("   Simulation Mode", isOn: $viewModel.simulationMode)
                                 .frame(maxWidth: .infinity)
