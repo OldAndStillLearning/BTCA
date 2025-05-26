@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct GridView: View {
     @Environment(BTCAViewModel.self) var viewModel
 
@@ -16,6 +18,7 @@ struct GridView: View {
     @State private var draggingItem: Cellule?
     @State var items: [Cellule]
     @State var cellStyle: CellStyle
+    
     
     var body: some View {
         GeometryReader { geometry in
@@ -30,9 +33,18 @@ struct GridView: View {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: itemSize), spacing: 1)], spacing: 1) {
                         ForEach(items) { item in
+                            let cellHeight: CGFloat = {
+                                switch cellStyle {
+                                case .basic: return 85
+                                case .compact: return 100
+                                case .detailed: return 115
+                                }
+                            }()
+                            
                             cellView(for: item)
                                 .frame(maxWidth: 300)
-                                .frame(height: 100)
+//                                .frame(height: 100)
+                                .frame(height: cellHeight)
                                 .background(item.color)
                                 .foregroundColor(.black)
                                 .cornerRadius(4)
