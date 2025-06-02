@@ -11,21 +11,21 @@ import Swift
 
 @Observable
 class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
-    
     weak var btcaViewModelWeak: BTCAViewModel?
     
-    
+    var connectedPeripheral: CBPeripheral?              // MARK: Exposed Var
     var bluetoothStatus = BluetoothConstant.Status_Disconnected   // MARK: Exposed var
     // Disconnected - Connecting - Connected - Display in BluetoothStatusView in Text
-    
-    
-    private var centralManager = CBCentralManager()  // Should it be optional, instead of implicit unwrapping
-    
+
+    private var textReceived: String = ""
+    private var centralManager = CBCentralManager()         // Should it be optional
     private var peripheralsDiscovered = [CBPeripheral]()
-    var connectedPeripheral: CBPeripheral?              // MARK: Exposed Var
     private var deviceValidated: Bool = false
     private var txCharacteristic : CBCharacteristic?
     private var rxCharacteristic : CBCharacteristic?
+    
+    private var scanningTimer: AnyCancellable?          // Timer
+    private(set) var secondsRemaining = 15              // Timer
     
     private var isBluetoothOn = false {
         didSet {
@@ -39,30 +39,12 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         }
     }
     
-    
-    
-    
-    private var textReceived: String = ""
-    
-    
-    
-    
-    
-    
-    
-    
     private var isSetupValidated:Bool = false {
         didSet {
             btcaViewModelWeak?.isSetupValidated = isSetupValidated
         }
     }
-    
-    
-    
-    // Timer
-    private var scanningTimer: AnyCancellable?
-    private(set) var secondsRemaining = 15
-    
+
     private var showUARTDeviceOnly = true {         // User might want to change it to see if bluetoth device without UART appear - Not implemented anymore
         didSet {                            // could be usefull for those who wnat to developt uart emitter
             let tempScanning = isScanning
@@ -105,8 +87,8 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         if let peripheral = connectedPeripheral {
             centralManager.cancelPeripheralConnection(peripheral)
             
-            // i know it is doen twice but reading appledocumentation  on cancelPeripheralConnection(_:)
-            //            This method is nonblocking, and any CBPeripheral class commands that are still pending to peripheral may not complete. Because other apps may still have a connection to the peripheral, canceling a local connection doesn’t guarantee that the underlying physical link is immediately disconnected. From the app’s perspective, however, the peripheral is effectively disconnected, and the central manager object calls the centralManager(_:didDisconnectPeripheral:error:) method of its delegate object.
+            // i know it is done twice but reading appledocumentation  on cancelPeripheralConnection(_:)
+            // from apple ->   This method is nonblocking, and any CBPeripheral class commands that are still pending to peripheral may not complete. Because other apps may still have a connection to the peripheral, canceling a local connection doesn’t guarantee that the underlying physical link is immediately disconnected. From the app’s perspective, however, the peripheral is effectively disconnected, and the central manager object calls the centralManager(_:didDisconnectPeripheral:error:) method of its delegate object.
             
             connectedPeripheral = nil
             resetQoS()
@@ -228,7 +210,7 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         resetQoS()
         
         if btcaViewModelWeak!.setup.isLocationDesired {
-            btcaViewModelWeak!.startLocationUpdateGPS()     // will start only if user enable gps in setup
+            btcaViewModelWeak!.startLocationUpdateGPS()     // will start only if user enable gps in setup //TODO: what happen is user change After connected, so this is at the wrong place.
         }
     }
     
@@ -538,11 +520,15 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     
     func stopScanning(){        //MARK: Exposed Var
         isScanning = false
+        
         centralManager.stopScan()
         stopScanningTimer()
     }
     
     private func startScanningTimer() {
+        
+        guard scanningTimer == nil else { return }
+        
         stopScanningTimer()
         
         secondsRemaining = 15
@@ -554,8 +540,9 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
                 
                 if self.secondsRemaining > 0 {
                     self.secondsRemaining -= 1
+                    print ("secondsRemaining \(secondsRemaining)")
                 } else {
-                    stopScanningTimer()
+                    stopScanning()
                 }
             }
     }

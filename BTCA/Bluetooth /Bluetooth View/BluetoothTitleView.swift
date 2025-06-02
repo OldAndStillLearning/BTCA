@@ -17,7 +17,6 @@ struct BluetoothTitleView: View {
                 Text(viewModel.isBluetoothOn ? "On" : "Off")
                     .foregroundColor(viewModel.isBluetoothOn ? .green : .red)
             }
-//            .font(.system(size: 30))
             .font(.largeTitle)
     }
 }

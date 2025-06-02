@@ -16,8 +16,8 @@ struct BluetoothButtonView: View {
             Button("Start Scan") {
                 viewModel.startScanning()
             }
-            .disabled(bluetooth.isScanning )
-            .opacity(!bluetooth.isScanning  ? 1 : 0.5)
+            .disabled( bluetooth.isScanning  || viewModel.isBluetoothConnected)
+            .opacity( (bluetooth.isScanning  || viewModel.isBluetoothConnected ) ? 0.5 : 1  )
             .frame(maxWidth: .infinity)
             .buttonStyleGreen()
             
@@ -34,6 +34,12 @@ struct BluetoothButtonView: View {
 
 
 #Preview {
+    let viewModel = BTCAViewModel()
     BluetoothButtonView()
-        .environment(BluetoothManager(btcaViewModelWeak: BTCAViewModel()))
+//        .environment(BluetoothManager(btcaViewModelWeak: BTCAViewModel()))
+        .environment(BluetoothManager(btcaViewModelWeak: viewModel ))
+        .environment(viewModel)
+    
+    
+ 
 }
