@@ -25,6 +25,7 @@ class BTCAViewModel {
     var demoData = [Cellule]()
     var cellulesContainer = CellulesContainer()
     
+    var batteryPercent: Float = 0.0
     
     var navigateToGridAutomaticallyTimer: AnyCancellable?
     
@@ -34,7 +35,7 @@ class BTCAViewModel {
     var buttonToGridIsEnable = true
     
     
-//    var displayCanUpdate: Bool = true        // use for Drag and Drop // after testing -> it is not needed but maybe shuld stay there
+    //    var displayCanUpdate: Bool = true        // use for Drag and Drop // after testing -> it is not needed but maybe shuld stay there
     
     
     init () {
@@ -52,40 +53,43 @@ class BTCAViewModel {
         
         aRideData = rideDataPreparation!.crunchANewLine(oneLineArray)
         
-        //        1- insert in Database
-        DatabaseManager.shared.bufferRideData(aRideData)
-        
-        
-        //        2a- Send to file in needed RAW DATA from Cycle Analyst
-        if setup.allowWriteCycleAnalystRawData {
-            let catime = BTCAUtility.dateForCATime(date: aRideData.date)
-            var temp = oneLineArray
-            temp.insert(catime, at: 0)
-            fichierManager.newLineReceived(data: temp, fileType: FileType.cycleAnalystrawData)
-        }
-        
-        //        2b- Send to file in needed ALL DATA calculated
-        if setup.allowWriteAllCalculatedData {
-            fichierManager.newLineOfAllDataReceived(rideData: aRideData, fileType: FileType.allCalculatedData)
+        if !simulationMode {
+            
+            //        1- insert in Database
+            DatabaseManager.shared.bufferRideData(aRideData)
+            
+            
+            //        2a- Send to file in needed RAW DATA from Cycle Analyst
+            if setup.allowWriteCycleAnalystRawData {
+                let catime = BTCAUtility.dateForCATime(date: aRideData.date)
+                var temp = oneLineArray
+                temp.insert(catime, at: 0)
+                fichierManager.newLineReceived(data: temp, fileType: FileType.cycleAnalystrawData)
+            }
+            
+            //        2b- Send to file in needed ALL DATA calculated
+            if setup.allowWriteAllCalculatedData {
+                fichierManager.newLineOfAllDataReceived(rideData: aRideData, fileType: FileType.allCalculatedData)
+            }
         }
         
         
         //        3- Send To Display
-//        if displayCanUpdate {         // after testing -> it is not needed but maybe shuld stay there
-            let rideDataStruct = RideDataStruct(rideData: aRideData)
-            let arrayToDisplay = fillRideDataDisplayCell(rideDataStruct: rideDataStruct)
-            
-            // now how to send to display
-            for newCellule in arrayToDisplay {
-                if let index = demoData.firstIndex(where: { $0.id == newCellule.id }) {
-                    demoData[index].position = newCellule.position
-                    demoData[index].valueToDisplay = newCellule.valueToDisplay
-                    demoData[index].color = newCellule.color
-                    demoData[index].title = newCellule.title
-                    demoData[index].unit = newCellule.unit
-                }
+        //        if displayCanUpdate {         // after testing -> it is not needed but maybe shuld stay there
+        let rideDataStruct = RideDataStruct(rideData: aRideData)
+        let arrayToDisplay = fillRideDataDisplayCell(rideDataStruct: rideDataStruct)
+        
+        // now how to send to display
+        for newCellule in arrayToDisplay {
+            if let index = demoData.firstIndex(where: { $0.id == newCellule.id }) {
+                demoData[index].position = newCellule.position
+                demoData[index].valueToDisplay = newCellule.valueToDisplay
+                demoData[index].color = newCellule.color
+                demoData[index].title = newCellule.title
+                demoData[index].unit = newCellule.unit
             }
-//        }
+        }
+        //        }
     }
     
     
@@ -202,7 +206,7 @@ class BTCAViewModel {
         startTimerForBatteryFull()
     }
     
-
+    
     
     private func startTimerForBatteryFull() {
         timerForBatteryFull?.invalidate()
