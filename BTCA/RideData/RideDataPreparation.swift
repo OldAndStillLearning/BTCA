@@ -15,8 +15,6 @@ class RideDataPreparation  {
     weak var btcaViewModelWeak: BTCAViewModel!
     var rideDataPrevious = RideDataPrevious()                  // data we received last time, that we need this time
     
-    
-    
     private var consumptionWattsHr = [Float]()
     private var dateArray = [Date]()
     private var distance  = [Float]()
@@ -160,6 +158,7 @@ class RideDataPreparation  {
         
         //CALCUL - 18 - batteryLevelPercent
         rideData.batteryLevelPercent = (rideData.batteryAh   /   Float (btcaViewModelWeak.setup.batteryCapacityAh) ) * 100
+        btcaViewModelWeak.batteryPercent = rideData.batteryLevelPercent
         
         //CALCUL - 21 - consumptionWattsHr
         //TODO: remove this when you now it is ok - for average calcul

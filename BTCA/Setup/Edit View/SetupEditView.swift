@@ -14,43 +14,36 @@ struct SetupEditView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("")
-                Text("")
+                SpacerT2()
                 Section(header: Text("Battery").font(.title2 ) )  {
                     BatterySectionView()
                 }
-                Text("")
-                Text("")
+                
+                SpacerT2()
                 Section(header: Text("Firmware").font(.title2 ) )  {
                     FirmwarePickerSectionView()
                 }
                 
-                Text("")
-                Text("")
 
+                SpacerT2()
                 Section(header: Text("Unit").font(.title2 ) )  {
                     UnitPreferencesView()
                 }
                 
                 #if os(iOS)
-                Text("")
-                Text("")
-
+                SpacerT2()
                 Section(header: Text("Cellular").font(.title2 ) )  {
                     CellularUsageView()
                 }
                 #endif
-                
-                Text("")
-                Text("")
 
+                SpacerT2()
                 Section(header: Text("Location").font(.title2 ) )  {
                     LocationSectionView()
                 }
                 
 
-                Text("")
-                Text("")
+                SpacerT2()
                 Section(header:
                     HStack {
                     Spacer()
@@ -86,10 +79,20 @@ struct SetupEditView: View {
                     FilesPrefView(path: $path)
                 }
                 
-                
+                SpacerT2()
+                Section(header: Text("iCloud").font(.title2 ) )  {
+                    RideDataCountView()
+                        .padding(.vertical, 6)
+                        .padding(.horizontal, 6)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.green, lineWidth: 1) // green border
+                        )
+                }
+                SpacerT2()
+                SpacerT2()
             }
             .padding(.horizontal)
-//#if os(iOS)
 #if os(iOS) || os(iPadOS) || os(visionOS)  || os(MacCatalyst)
             .navigationBarTitleDisplayMode(.inline)
 #endif
