@@ -113,14 +113,6 @@ struct MainView: View {
                                     .stroke(Color.green, lineWidth: 1) // green border
                             )
          
-                            
-                            RideDataCountView()
-                                .padding(.vertical, 6)
-                                .padding(.horizontal, 6)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .stroke(Color.green, lineWidth: 1) // green border
-                                )
                         }
                     }
 
