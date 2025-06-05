@@ -21,7 +21,7 @@ struct RideDataStruct {
     var consumptionWattsHr: Float = 0.0
     var date: Date = Date()
     var distance: Float = 0.0
-    var flag: Int16  = 0
+    var flag: String  = ""
     var gpsDateTime: Date = Date()
     var gpsDirection: Double = 0.0
     var gpsElevation: Double = 0.0
@@ -92,7 +92,7 @@ struct RideDataStruct {
         self.consumptionWattsHr = 0.0
         self.date = Date()
         self.distance = 0.0
-        self.flag = 0
+        self.flag = " "
         self.gpsDateTime = Date()
         self.gpsDirection = 0.0
         self.gpsElevation = 0.0

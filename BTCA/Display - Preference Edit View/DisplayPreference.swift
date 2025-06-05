@@ -132,7 +132,7 @@ class DisplayPreference: Codable {
         }
             
         
-        temp[RideDataEnum.flag] = ""
+        temp[RideDataEnum.flag] = " "
         temp[RideDataEnum.gpsDateTime] = "Date-Time"
         temp[RideDataEnum.gpsDirection] = "Heading"
         

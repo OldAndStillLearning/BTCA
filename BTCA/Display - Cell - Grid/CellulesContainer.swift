@@ -36,7 +36,7 @@ class CellulesContainer {
             Cellule(id: 9, position: 23, valueToDisplay: "9" , color: .red, title: "consumptionWattsHr", unit: "WattsHr"),
             Cellule(id: 10, position: 7, valueToDisplay: "10" , color: .white, title: "date", unit: "jour"),
             Cellule(id: 11, position: 6, valueToDisplay: "11" , color: .white, title: "Distance", unit: "km"),
-            Cellule(id: 12, position: 15, valueToDisplay: "12" , color: .white, title: "flag", unit: "unit"),
+            Cellule(id: 12, position: 15, valueToDisplay: "12" , color: .white, title: "flag", unit: "code"),
             Cellule(id: 13, position: 29, valueToDisplay: "13" , color: .blue, title: "gpsDateTime", unit: "gps date"),
             Cellule(id: 14, position: 24, valueToDisplay: "14" , color: .blue, title: "gpsDirection", unit: "gps Heading"),
             Cellule(id: 15, position: 25, valueToDisplay: "15" , color: .blue, title: "gpsElevation", unit: "gps ele"),

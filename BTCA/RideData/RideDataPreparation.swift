@@ -71,7 +71,7 @@ class RideDataPreparation  {
             case RideDataEnum.consumptionA:      newRideData.consumptionA = Float(newData[index]) ?? 0
             case RideDataEnum.consumptionAH:     newRideData.consumptionAH = Float(newData[index]) ?? 0
             case RideDataEnum.distance:          newRideData.distance = Float(newData[index]) ?? 0
-            case RideDataEnum.flag:              newRideData.flag = Int16(newData[index]) ?? 0
+            case RideDataEnum.flag:              newRideData.flag = String(newData[index])
             case RideDataEnum.human:             newRideData.human = Int16(newData[index]) ?? 0
             case RideDataEnum.pasTorque:         newRideData.pasTorque = Float(newData[index]) ?? 0
             case RideDataEnum.rpm:               newRideData.rpm = Float(newData[index]) ?? 0

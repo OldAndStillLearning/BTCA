@@ -22,6 +22,8 @@ class BTCAViewModel {
     var displayPreference = DisplayPreference.shared
     var setup = Setup.shared
     
+    let limitFlagEnum = LimitFlagEnum.Preset1
+    
     var demoData = [Cellule]()
     var cellulesContainer = CellulesContainer()
     
@@ -155,10 +157,19 @@ class BTCAViewModel {
                         valueToDisplay = BTCAUtility.doubleToString(value: value, btcaVar: BTCAType, displayPreference: displayPreference)
                     }
                     
-                case RideDataEnum.flag, RideDataEnum.human :
+                case RideDataEnum.flag :
+                    if let value = child.value as? String {
+                        let flag = limitFlagEnum.whichFlag(letter:value )
+                        valueToDisplay = "\(flag.nameText)"
+                        unit = value + "=\(flag.nameText)"
+                    }
+                    
+                    
+                case RideDataEnum.human :
                     if let value = child.value as? Int16 {
                         valueToDisplay = String(value)
                     }
+                    
                     
                 case RideDataEnum.caTime :
                     if let value = child.value as? String {
@@ -166,6 +177,11 @@ class BTCAViewModel {
                         valueToDisplay = value
                         valueToDisplay = "VIDE"
                     }
+                    
+                    
+                    
+                    
+                    
                     
                 default:                        // ALL FLOAT
                     if let value = child.value as? Float {
