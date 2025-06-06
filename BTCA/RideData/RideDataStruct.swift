@@ -14,7 +14,7 @@ struct RideDataStruct {
     var batteryLevelPercent: Float  = 0.0
     var batteryVolt: Float = 0.0
     var batteryWattsHr: Float = 0.0
-    var caTime: String = ""
+    var acceleration: Float = 0.0
     var consumptionA: Float = 0.0
     var consumptionAH: Float = 0.0
     var consumptionWatts: Float = 0.0
@@ -49,7 +49,7 @@ struct RideDataStruct {
         self.batteryLevelPercent = rideData.batteryLevelPercent
         self.batteryVolt = rideData.batteryVolt
         self.batteryWattsHr = rideData.batteryWattsHr
-        self.caTime = rideData.caTime
+        self.acceleration = rideData.acceleration
         self.consumptionA = rideData.consumptionA
         self.consumptionAH = rideData.consumptionAH
         self.consumptionWatts = rideData.consumptionWatts
@@ -85,7 +85,7 @@ struct RideDataStruct {
         self.batteryLevelPercent = 0.0
         self.batteryVolt = 0.0
         self.batteryWattsHr = 0.0
-        self.caTime = ""
+        self.acceleration = 0.0
         self.consumptionA = 0.0
         self.consumptionAH = 0.0
         self.consumptionWatts = 0.0

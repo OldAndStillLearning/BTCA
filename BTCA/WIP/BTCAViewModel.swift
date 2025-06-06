@@ -61,11 +61,13 @@ class BTCAViewModel {
             DatabaseManager.shared.bufferRideData(aRideData)
             
             
+            
+            // TODO: franco ce soir important 123456789
             //        2a- Send to file in needed RAW DATA from Cycle Analyst
             if setup.allowWriteCycleAnalystRawData {
-                let catime = BTCAUtility.dateForCATime(date: aRideData.date)
+                let aDateNotime = BTCAUtility.dateForCATime(date: aRideData.date)
                 var temp = oneLineArray
-                temp.insert(catime, at: 0)
+                temp.insert(aDateNotime, at: 0)
                 fichierManager.newLineReceived(data: temp, fileType: FileType.cycleAnalystrawData)
             }
             
@@ -170,13 +172,12 @@ class BTCAViewModel {
                         valueToDisplay = String(value)
                     }
                     
-                    
-                case RideDataEnum.caTime :
-                    if let value = child.value as? String {
-                        //TODO: if BTCA never send Date, remove Otherwise manage here
-                        valueToDisplay = value
-                        valueToDisplay = "VIDE"
-                    }
+//                  case RideDataEnum. :
+//                    if let value = child.value as? String {
+//                        //TODO: if BTCA never send Date, remove Otherwise manage here
+//                        valueToDisplay = value
+//                        valueToDisplay = "VIDE"
+//                    }
                     
                     
                     

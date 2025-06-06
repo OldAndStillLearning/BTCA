@@ -18,10 +18,10 @@ class CellulesContainer {
     }
 
     func demoCellules() -> [Cellule] {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .none
-        dateFormatter.timeStyle = .medium
-        let dateEnString = dateFormatter.string(from: Date())
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateStyle = .none
+//        dateFormatter.timeStyle = .medium
+//        let dateEnString = dateFormatter.string(from: Date())
         
         let tempDemoData = [
             Cellule(id: 0, position: 18, valueToDisplay: "0" , color: .brown, title: "AuxD", unit: "auxd"),
@@ -29,7 +29,7 @@ class CellulesContainer {
             Cellule(id: 2, position: 1, valueToDisplay: "2" , color: .yellow, title: "Batt %", unit: "%"),
             Cellule(id: 3, position: 12, valueToDisplay: "3" , color: .yellow, title: "BattV", unit: "Volts"),
             Cellule(id: 4, position: 20, valueToDisplay: "4" , color: .yellow, title: "batteryWattsHr", unit: "Whr"),
-            Cellule(id: 5, position: 19, valueToDisplay: dateEnString, color: .red, title: "Time", unit: "CATime"),
+            Cellule(id: 5, position: 19, valueToDisplay: "5", color: .red, title: "acceleration", unit: "acceleration"),
             Cellule(id: 6, position: 5, valueToDisplay: "56" , color: .red, title: "ConsumptionA", unit: "Amperes"),
             Cellule(id: 7, position: 9, valueToDisplay: "7" , color: .red, title: "consumptionAH", unit: "AH"),
             Cellule(id: 8, position: 3, valueToDisplay: "8" , color: .red, title: "Consumption", unit: "Watss"),

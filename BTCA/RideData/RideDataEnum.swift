@@ -16,7 +16,7 @@ enum RideDataEnum:String, Codable, CaseIterable, Identifiable {
     batteryLevelPercent = "batteryLevelPercent",
     batteryVolt = "batteryVolt",
     batteryWattsHr = "batteryWattsHr",
-    caTime = "caTime",
+    acceleration = "acceleration",
     consumptionA = "consumptionA",
     consumptionAH = "consumptionAH",
     consumptionWatts = "consumptionWatts",
@@ -51,7 +51,7 @@ enum RideDataEnum:String, Codable, CaseIterable, Identifiable {
         case .batteryLevelPercent : return 2
         case .batteryVolt : return 3
         case .batteryWattsHr : return 4
-        case .caTime : return 5
+        case .acceleration : return 5
         case .consumptionA : return 6
         case .consumptionAH : return 7
         case .consumptionWatts : return 8
@@ -91,7 +91,7 @@ enum RideDataEnum:String, Codable, CaseIterable, Identifiable {
         case .batteryLevelPercent: return "batteryLevelPercent"
         case .batteryVolt: return "batteryVolt"
         case .batteryWattsHr: return "batteryWattsHr"
-        case .caTime: return "caTime"
+        case .acceleration: return "acceleration"
         case .consumptionA: return "consumptionA"
         case .consumptionAH: return "consumptionAH"
         case .consumptionWatts: return "consumptionWatts"
@@ -165,7 +165,7 @@ enum RideDataEnum:String, Codable, CaseIterable, Identifiable {
             RideDataEnum.batteryLevelPercent.nameText,
             RideDataEnum.batteryVolt.nameText,
             RideDataEnum.batteryWattsHr.nameText,
-            RideDataEnum.caTime.nameText,
+            RideDataEnum.acceleration.nameText,
             RideDataEnum.consumptionA.nameText,
             RideDataEnum.consumptionAH.nameText,
             RideDataEnum.consumptionWatts.nameText,

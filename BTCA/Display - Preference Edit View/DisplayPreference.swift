@@ -74,7 +74,7 @@ class DisplayPreference: Codable {
         temp[RideDataEnum.batteryLevelPercent] = "batteryLevel"
         temp[RideDataEnum.batteryVolt] = "batteryVolt"
         temp[RideDataEnum.batteryWattsHr] = "batteryWattsHr"
-        temp[RideDataEnum.caTime] = "caTime"
+        temp[RideDataEnum.acceleration] = "acceleration"
         temp[RideDataEnum.consumptionA] = "consumptionA"
         temp[RideDataEnum.consumptionAH] = "consumptionAH"
         temp[RideDataEnum.consumptionWatts] =  "consumptionWatts"
@@ -116,7 +116,7 @@ class DisplayPreference: Codable {
         temp[RideDataEnum.batteryLevelPercent] = "(P-C+Cor)/Cap"
         temp[RideDataEnum.batteryVolt] = "Volt"
         temp[RideDataEnum.batteryWattsHr] = "Watts*Hr"
-        temp[RideDataEnum.caTime] = "caTime"
+        temp[RideDataEnum.acceleration] = "acceleration"
         temp[RideDataEnum.consumptionA] = "A"
         temp[RideDataEnum.consumptionAH] = "AH"
         temp[RideDataEnum.consumptionWatts] =  "Watts"
@@ -209,7 +209,7 @@ class DisplayPreference: Codable {
         temp[RideDataEnum.batteryLevelPercent] = 0
         temp[RideDataEnum.batteryVolt] = 2
         temp[RideDataEnum.batteryWattsHr] = 0
-        temp[RideDataEnum.caTime] = 0
+        temp[RideDataEnum.acceleration] = 1
         temp[RideDataEnum.consumptionA] = 2
         temp[RideDataEnum.consumptionAH] = 1
         temp[RideDataEnum.consumptionWatts] =  0
@@ -286,7 +286,7 @@ class DisplayPreference: Codable {
         
         
         temp[RideDataEnum.auxD] = 14
-        temp[RideDataEnum.caTime] = 15
+        temp[RideDataEnum.acceleration] = 15
         
         temp[RideDataEnum.batteryWattsHr] = 16
         temp[RideDataEnum.tMotor] = 17
@@ -346,7 +346,7 @@ class DisplayPreference: Codable {
         
         
         temp[RideDataEnum.auxD] = 18
-        temp[RideDataEnum.caTime] = 19
+        temp[RideDataEnum.acceleration] = 19
         
         temp[RideDataEnum.batteryWattsHr] = 20
         temp[RideDataEnum.tMotor] = 21

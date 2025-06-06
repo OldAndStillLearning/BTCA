@@ -30,7 +30,7 @@ struct BTCAConstant {
     static let batteryLevelPercent = "batteryLevelPercent"
     static let batteryVolt = "batteryVolt"
     static let batteryWattsHr = "batteryWattsHr"
-    static let caTime = "caTime"
+    static let acceleration = "acceleration"
     static let consumptionA = "consumptionA"
     static let consumptionAH = "consumptionAH"
     static let consumptionWatts = "consumptionWatts"
@@ -68,7 +68,7 @@ struct BTCAConstant {
         case BTCAConstant.batteryLevelPercent: return RideDataEnum.batteryLevelPercent
         case BTCAConstant.batteryVolt: return RideDataEnum.batteryVolt
         case BTCAConstant.batteryWattsHr: return RideDataEnum.batteryWattsHr
-        case BTCAConstant.caTime: return RideDataEnum.caTime
+        case BTCAConstant.acceleration: return RideDataEnum.acceleration
         case BTCAConstant.consumptionA: return RideDataEnum.consumptionA
         case BTCAConstant.consumptionAH: return RideDataEnum.consumptionAH
         case BTCAConstant.consumptionWatts: return RideDataEnum.consumptionWatts

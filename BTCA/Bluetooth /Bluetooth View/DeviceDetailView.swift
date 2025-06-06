@@ -12,7 +12,6 @@ struct DeviceDetailView: View {
     @Bindable var device: BluetoothDevice
     
     var body: some View {
-        @Bindable var deviceManager = viewModel.bluetoothDeviceManager
         VStack {
             Form {
                 Text("Bluetooth device")
@@ -28,7 +27,7 @@ struct DeviceDetailView: View {
             }
             .navigationTitle("Device Details")
             .onDisappear() {
-                deviceManager.saveDevices()
+                viewModel.bluetoothDeviceManager.saveDevices()
             }
             DeviceDetailInformation()
                 .padding()
@@ -43,7 +42,6 @@ struct DeviceDetailView: View {
 #Preview {
     @Previewable @State var device: BluetoothDevice = BluetoothDevice(id: UUID(), name: "Bluefruit" )
     let viewModel = BTCAViewModel()
-    let bluetoothDeviceManager = BluetoothDeviceManager()
     DeviceDetailView(device: device)
         .environment(viewModel)
 }

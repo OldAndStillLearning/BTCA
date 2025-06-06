@@ -67,7 +67,7 @@ class RideDataPreparation  {
             switch (BTCAVarName) {
             case RideDataEnum.auxD:              newRideData.auxD = Float(newData[index]) ?? 0
             case RideDataEnum.batteryVolt:       newRideData.batteryVolt = Float(newData[index]) ?? 0
-            case RideDataEnum.caTime:            newRideData.caTime = String(newData[index])
+            case RideDataEnum.acceleration:      newRideData.acceleration = Float(newData[index]) ?? 0
             case RideDataEnum.consumptionA:      newRideData.consumptionA = Float(newData[index]) ?? 0
             case RideDataEnum.consumptionAH:     newRideData.consumptionAH = Float(newData[index]) ?? 0
             case RideDataEnum.distance:          newRideData.distance = Float(newData[index]) ?? 0

@@ -16,7 +16,7 @@ class RideDataModel {
     var batteryLevelPercent: Float  = 0.0
     var batteryVolt: Float = 0.0
     var batteryWattsHr: Float = 0.0
-    var caTime: String = ""
+    var acceleration: Float = 0.0
     var consumptionA: Float = 0.0
     var consumptionAH: Float = 0.0
     var consumptionWatts: Float = 0.0
@@ -51,7 +51,7 @@ class RideDataModel {
         self.batteryLevelPercent = 0.0
         self.batteryVolt = 0.0
         self.batteryWattsHr = 0.0
-        self.caTime = "0"
+        self.acceleration = 0.0
         self.consumptionA = 0.0
         self.consumptionAH = 0.0
         self.consumptionWatts = 0.0
@@ -136,7 +136,7 @@ class RideDataModel {
             "\(rideData.batteryLevelPercent)",
             "\(rideData.batteryVolt)",
             "\(rideData.batteryWattsHr)",
-            rideData.caTime,
+            "\(rideData.acceleration)",
             "\(rideData.consumptionA)",
             "\(rideData.consumptionAH)",
             "\(rideData.consumptionWatts)",
@@ -181,7 +181,7 @@ class RideDataModel {
             "\(rideData.batteryLevelPercent)",
             "\(rideData.batteryVolt)",
             "\(rideData.batteryWattsHr)",
-            rideData.caTime,
+            "\(rideData.acceleration)",
             "\(rideData.consumptionA)",
             "\(rideData.consumptionAH)",
             "\(rideData.consumptionWatts)",
@@ -219,7 +219,7 @@ class RideDataModel {
         case 2 : return RideDataEnum.batteryLevelPercent
         case 3 : return RideDataEnum.batteryVolt
         case 4 : return RideDataEnum.batteryWattsHr
-        case 5 : return RideDataEnum.caTime
+        case 5 : return RideDataEnum.acceleration
         case 6 : return RideDataEnum.consumptionA
         case 7 : return RideDataEnum.consumptionAH
         case 8 : return RideDataEnum.consumptionWatts
