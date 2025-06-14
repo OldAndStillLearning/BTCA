@@ -53,7 +53,7 @@ enum FirmwareType:String, CaseIterable, Codable, Identifiable {
             uneArray[11] = ("3.444")        //Pos 11 - > BTCAVar.auxD               Float
             uneArray[12] = ("23.73")        //Pos 12 - > BTCAVar.solarProductionAH  Float
             uneArray[13] = ("2.1")          //Pos 13 - > BTCAVar.solarProductionA   Float
-            uneArray[14] = ("X")            //Pos 14 - > BTCAVar.flag               Int
+            uneArray[14] = ("X")            //Pos 14 - > BTCAVar.flag               String
             return uneArray
             
         default:
@@ -71,7 +71,7 @@ enum FirmwareType:String, CaseIterable, Codable, Identifiable {
             uneArray[10] = ("0.99")         //Pos 10 - > BTCAVar.throttleOut        Float
             uneArray[11] = ("3.444")        //Pos 11 - > BTCAVar.auxD               Float
             uneArray[12] = ("2.73")        //Pos 12 - > BTCAVar.solarProduction  Float //TODO: pas la bonne car existe pas encore
-            uneArray[13] = ("B")            //Pos 14 - > BTCAVar.flag               Int
+            uneArray[13] = ("B")            //Pos 14 - > BTCAVar.flag               Falg
             
             return uneArray
         }
@@ -99,7 +99,7 @@ enum FirmwareType:String, CaseIterable, Codable, Identifiable {
 //            uneArray[11] = ("3.444")        //Pos 11 - > BTCAVar.auxD               Float
 //            uneArray[12] = ("23.73")        //Pos 12 - > BTCAVar.solarProductionAH  Float
 //            uneArray[13] = ("2.1")          //Pos 13 - > BTCAVar.solarProductionA   Float
-//            uneArray[14] = ("B")            //Pos 14 - > BTCAVar.flag               Int
+//            uneArray[14] = ("B")            //Pos 14 - > BTCAVar.flag               String
 //            return uneArray
 //
 //        default:
@@ -117,7 +117,7 @@ enum FirmwareType:String, CaseIterable, Codable, Identifiable {
 //            uneArray[10] = ("0.99")         //Pos 10 - > BTCAVar.throttleOut        Float
 //            uneArray[11] = ("3.444")        //Pos 11 - > BTCAVar.auxD               Float
 //            uneArray[12] = ("0")            //Pos 12 - > BTCAVar.solarProduction  Float //TODO: pas la bonne car existe pas encore
-//            uneArray[13] = ("B")            //Pos 14 - > BTCAVar.flag               Int
+//            uneArray[13] = ("B")            //Pos 14 - > BTCAVar.flag               String
 //
 //            return uneArray
 //        }

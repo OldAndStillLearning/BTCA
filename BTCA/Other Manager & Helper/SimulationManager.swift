@@ -72,7 +72,7 @@ class SimulationManager {
 //        uneArray[11] = ("3.444")        //Pos 11 - > BTCAVar.auxD               Float
 //        uneArray[12] = ("23.73")        //Pos 12 - > BTCAVar.solarProductionAH  Float
 //        uneArray[13] = ("2.1")          //Pos 13 - > BTCAVar.solarProductionA   Float
-//        uneArray[14] = ("1")            //Pos 14 - > BTCAVar.flag               Int
+//        uneArray[14] = ("1")            //Pos 14 - > BTCAVar.flag               String
 //        
       
     }

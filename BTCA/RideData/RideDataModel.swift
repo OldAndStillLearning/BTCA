@@ -11,12 +11,12 @@ import SwiftData
 @Model
 class RideDataModel {
     
+    var acceleration: Float = 0.0
     var auxD: Float = 0.0
     var batteryAh: Float = 0.0
     var batteryLevelPercent: Float  = 0.0
     var batteryVolt: Float = 0.0
     var batteryWattsHr: Float = 0.0
-    var acceleration: Float = 0.0
     var consumptionA: Float = 0.0
     var consumptionAH: Float = 0.0
     var consumptionWatts: Float = 0.0
@@ -46,19 +46,19 @@ class RideDataModel {
     
     
     init() {
+        self.acceleration = 0.0
         self.auxD = 0.0
         self.batteryAh = 0.0
         self.batteryLevelPercent = 0.0
         self.batteryVolt = 0.0
         self.batteryWattsHr = 0.0
-        self.acceleration = 0.0
         self.consumptionA = 0.0
         self.consumptionAH = 0.0
         self.consumptionWatts = 0.0
         self.consumptionWattsHr = 0.0
         self.date = Date()
         self.distance = 0.0
-        self.flag = "1"
+        self.flag = "Preset 1"
         self.gpsDateTime = Date()
         self.gpsDirection = 0.0
         self.gpsElevation = 0.0
@@ -86,6 +86,7 @@ class RideDataModel {
 
         switch variable {
             // Float → cast to Double
+        case .acceleration: return Double(acceleration)
         case .auxD: return Double(auxD)
         case .batteryAh: return Double(batteryAh)
         case .batteryLevelPercent: return Double(batteryLevelPercent)
@@ -131,12 +132,12 @@ class RideDataModel {
         let line = [
             df.string(from: rideData.date),
             df.string(from: rideData.gpsDateTime),
+            "\(rideData.acceleration)",
             "\(rideData.auxD)",
             "\(rideData.batteryAh)",
             "\(rideData.batteryLevelPercent)",
             "\(rideData.batteryVolt)",
             "\(rideData.batteryWattsHr)",
-            "\(rideData.acceleration)",
             "\(rideData.consumptionA)",
             "\(rideData.consumptionAH)",
             "\(rideData.consumptionWatts)",
@@ -176,18 +177,18 @@ class RideDataModel {
         let line = [
             df.string(from: rideData.date),
             df.string(from: rideData.gpsDateTime),
+            "\(rideData.acceleration)",
             "\(rideData.auxD)",
             "\(rideData.batteryAh)",
             "\(rideData.batteryLevelPercent)",
             "\(rideData.batteryVolt)",
             "\(rideData.batteryWattsHr)",
-            "\(rideData.acceleration)",
             "\(rideData.consumptionA)",
             "\(rideData.consumptionAH)",
             "\(rideData.consumptionWatts)",
             "\(rideData.consumptionWattsHr)",
             "\(rideData.distance)",
-            "\(rideData.flag)",
+            rideData.flag,
             "\(rideData.gpsDirection)",
             "\(rideData.gpsElevation)",
             "\(rideData.gpsLatitude)",

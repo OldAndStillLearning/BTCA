@@ -18,7 +18,7 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     // Disconnected - Connecting - Connected - Display in BluetoothStatusView in Text
 
     private var textReceived: String = ""
-    private var centralManager = CBCentralManager()         // Should it be optional
+    private var centralManager: CBCentralManager!        // Should it be optional
     private var peripheralsDiscovered = [CBPeripheral]()
     private var deviceValidated: Bool = false
     private var txCharacteristic : CBCharacteristic?

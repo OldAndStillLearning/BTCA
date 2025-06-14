@@ -341,8 +341,11 @@ struct SecondView: View {
         let rides = group.items[second] ?? []
         ForEach(rides, id: \.date) { ride in
             HStack {
-                Text("Time: \(ride.date.formatted(date: .omitted, time: .standard))")
+                Text("\(ride.date.formatted(date: .omitted, time: .standard))")
                 Text("Speed: \(ride.speed, specifier: "%.2f") km/h")
+                Text("SolarProductionAh: \(ride.solarProductionAH, specifier: "%.2f") Ah")
+                Text("consumptionAh: \(ride.consumptionAH, specifier: "%.2f") Ah")
+
                 Spacer()
                 Button(role: .destructive) {
                     showDeleteAlert = true

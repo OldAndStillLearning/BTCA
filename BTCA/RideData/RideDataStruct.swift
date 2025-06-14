@@ -92,7 +92,7 @@ struct RideDataStruct {
         self.consumptionWattsHr = 0.0
         self.date = Date()
         self.distance = 0.0
-        self.flag = " "
+        self.flag = "Preset 1"
         self.gpsDateTime = Date()
         self.gpsDirection = 0.0
         self.gpsElevation = 0.0

@@ -59,8 +59,9 @@ class DatabaseManager {
 
             do {
                 try context.save()
-                print("✅ Flushed \(self.buffer.count) RideData objects")
                 self.buffer.removeAll()
+                print("✅ Flushed \(self.buffer.count) RideData objects to icloud")
+
             } catch {
                 print("❌ Failed to flush RideData buffer:", error)
             }
@@ -132,9 +133,10 @@ class DatabaseManager {
         }
         
         do {
+            print("✅ Flushed \(buffer.count) RideData objects to iCloud ")
             try context.save()
-            print("✅ Flushed \(buffer.count) RideData objects")
             buffer.removeAll()
+
         } catch {
             print("❌ Failed to flush RideData buffer:", error)
         }

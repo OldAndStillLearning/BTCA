@@ -18,6 +18,8 @@ class RideDataPreparation  {
     private var consumptionWattsHr = [Float]()
     private var dateArray = [Date]()
     private var distance  = [Float]()
+    private var weNeedToCalculateNewBatteryCorrectionAtFull: Bool = false
+    
     
     init(btcaViewModelWeak: BTCAViewModel) {
         self.btcaViewModelWeak = btcaViewModelWeak
@@ -30,6 +32,7 @@ class RideDataPreparation  {
     }
 
     
+
     
     //*******************************************************************************************************//
     //**                                                                                                   **//
@@ -108,6 +111,43 @@ class RideDataPreparation  {
     
     // -> Calculated other core data Value
     func calculateOtherBTCAVar(rideData: RideDataModel) -> RideDataModel {
+        
+        if weNeedToCalculateNewBatteryCorrectionAtFull {
+            // ________________________________________________
+
+                
+            // ________________________________________________
+            // battLevel = (prodAh - consAh + correctionAh) / battCapacityAh
+            // but here  correction is unknown and battLevel is 100% (or 1)
+            // 1 = (prodAh - consAh + correctionAh) / battCapacityAh
+            // battCapacityAh  = prodAh - consAh + correctionAH
+            // so   correctionAh = battCapacityAh - prodAh + consAh
+
+            
+            let correction = Float(btcaViewModelWeak.setup.batteryCapacityAh) - rideData.solarProductionAH + rideData.consumptionAH
+
+            
+            btcaViewModelWeak.setup.batteryCapacityCorrectionAh = Double(correction) // Ah
+            btcaViewModelWeak.setup.save() // because we change the correction
+
+
+              // ________________________________________________
+               weNeedToCalculateNewBatteryCorrectionAtFull = false
+
+            
+            //            let rideData.batteryAh = rideData.solarProductionAH - rideData.consumptionAH + Float(setup.batteryCapacityCorrectionAh)
+//            let temp1 = rideData.solarProductionAH - rideData.consumptionAH + Float(setup.batteryCapacityCorrectionAh)
+//            let temp2 = (temp1 /    Float (setup.batteryCapacityAh) ) * 100
+//
+//            let alertText = ("new correction calculated \(setup.batteryCapacityCorrectionAh) \n new Batt level = \(temp2)")
+
+        }
+        
+
+        
+        
+        
+        
         
         //*******************************************************************************************************z//
         //**
@@ -289,7 +329,7 @@ class RideDataPreparation  {
 
     
     
-    func batteryIsFullNow() {
+    func batteryIsFullNowWithPrevious () {
         // ________________________________________________
         // battLevel = (prodAh - consAh + correctionAh) / battCapacityAh
         // but here  correction is unknown and battLevel is 100% (or 1)
@@ -297,11 +337,24 @@ class RideDataPreparation  {
         // battCapacityAh  = prodAh - consAh + correctionAH
         // so   correctionAh = battCapacityAh - prodAh + consAh
 
+        
         let correction = Float(btcaViewModelWeak.setup.batteryCapacityAh) - rideDataPrevious.solarProductionAH + rideDataPrevious.consumptionAH
+
+        
         btcaViewModelWeak.setup.batteryCapacityCorrectionAh = Double(correction) // Ah
         btcaViewModelWeak.setup.save() // because we change the correction
         
     }
+
+    
+    
+    func batteryIsFullNow() {
+        // Use this var to force correction calculation in data loop
+            weNeedToCalculateNewBatteryCorrectionAtFull = true
+            
+    }
+    
+    
 }
 
 
