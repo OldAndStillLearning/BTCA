@@ -51,10 +51,10 @@ class Setup: Codable {
         self.batteryCapacityCorrectionAh = 0.0
         self.firmwareType = .Solar          // TODO: remet standard car most people use that .Standard, .CA3_13,
         self.firmwareVersion = .CA3_13v1S
-        self.allowWriteCycleAnalystRawData = false
-        self.allowWriteAllCalculatedData = false
-        self.isLocationDesired = false
-        self.isLocationInBackGroundDesired = false
+        self.allowWriteCycleAnalystRawData = true
+        self.allowWriteAllCalculatedData = true
+        self.isLocationDesired = true
+        self.isLocationInBackGroundDesired = true
         self.distanceEnum = .kilometers
         self.speedEnum = .kph
         self.temperatureEnum = .celsius
