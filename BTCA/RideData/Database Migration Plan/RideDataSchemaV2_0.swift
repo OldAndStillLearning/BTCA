@@ -16,12 +16,12 @@ static var models: [any PersistentModel.Type] {
 
 @Model
 class RideDataModel {
+    var acceleration: Float
     var auxD: Float
     var batteryAh: Float
     var batteryLevelPercent: Float
     var batteryVolt: Float
     var batteryWattsHr: Float
-    var acceleration: Float
     var consumptionA: Float
     var consumptionAH: Float
     var consumptionWatts: Float
@@ -51,12 +51,12 @@ class RideDataModel {
     var wattsHrByKmInstant: Float
     
     init() {
+        self.acceleration = 0.0
         self.auxD = 0.0
         self.batteryAh = 0.0
         self.batteryLevelPercent = 0.0
         self.batteryVolt = 0.0
         self.batteryWattsHr = 0.0
-        self.acceleration = 0.0
         self.consumptionA = 0.0
         self.consumptionAH = 0.0
         self.consumptionWatts = 0.0

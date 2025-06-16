@@ -25,12 +25,12 @@ struct BTCAConstant {
     static let NUMBER_OF_DATA_TO_CALCULATED_AVERAGE_CONSUMPTION   = 100  // 1 second per data   1 min 40 secon
     static let NUMBER_OF_DATA_TO_CALCULATED_INSTANT_CONSUMPTION   = 10    // average on 10 second for instant consumption
 
+    static let acceleration = "acceleration"
     static let auxD = "auxD"
     static let batteryAh = "batteryAh"
     static let batteryLevelPercent = "batteryLevelPercent"
     static let batteryVolt = "batteryVolt"
     static let batteryWattsHr = "batteryWattsHr"
-    static let acceleration = "acceleration"
     static let consumptionA = "consumptionA"
     static let consumptionAH = "consumptionAH"
     static let consumptionWatts = "consumptionWatts"
@@ -63,12 +63,12 @@ struct BTCAConstant {
         
         switch aText {
             
+        case BTCAConstant.acceleration: return RideDataEnum.acceleration
         case BTCAConstant.auxD: return RideDataEnum.auxD
         case BTCAConstant.batteryAh: return RideDataEnum.batteryAh
         case BTCAConstant.batteryLevelPercent: return RideDataEnum.batteryLevelPercent
         case BTCAConstant.batteryVolt: return RideDataEnum.batteryVolt
         case BTCAConstant.batteryWattsHr: return RideDataEnum.batteryWattsHr
-        case BTCAConstant.acceleration: return RideDataEnum.acceleration
         case BTCAConstant.consumptionA: return RideDataEnum.consumptionA
         case BTCAConstant.consumptionAH: return RideDataEnum.consumptionAH
         case BTCAConstant.consumptionWatts: return RideDataEnum.consumptionWatts

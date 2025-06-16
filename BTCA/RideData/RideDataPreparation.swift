@@ -283,6 +283,8 @@ class RideDataPreparation  {
             rideData.gpsElevation    = location.altitude
             rideData.gpsLatitude     = location.latitude
             rideData.gpsLongitude    = location.longitude
+            
+            
             rideData.gpsSpeed        = location.speed
         }
 //        else {

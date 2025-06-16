@@ -69,12 +69,12 @@ class DisplayPreference: Codable {
     func titleDefault () -> [RideDataEnum: String]{
         var temp = [RideDataEnum: String]()
         
+        temp[RideDataEnum.acceleration] = "acceleration"
         temp[RideDataEnum.auxD] = "auxD"
         temp[RideDataEnum.batteryAh] = "batteryAh"
         temp[RideDataEnum.batteryLevelPercent] = "batteryLevel"
         temp[RideDataEnum.batteryVolt] = "batteryVolt"
         temp[RideDataEnum.batteryWattsHr] = "batteryWattsHr"
-        temp[RideDataEnum.acceleration] = "acceleration"
         temp[RideDataEnum.consumptionA] = "consumptionA"
         temp[RideDataEnum.consumptionAH] = "consumptionAH"
         temp[RideDataEnum.consumptionWatts] =  "consumptionWatts"
@@ -110,13 +110,12 @@ class DisplayPreference: Codable {
         
         let setup = Setup.shared
         
-        
+        temp[RideDataEnum.acceleration] = "acceleration"
         temp[RideDataEnum.auxD] = "auxd"
         temp[RideDataEnum.batteryAh] = "Ah"
         temp[RideDataEnum.batteryLevelPercent] = "(P-C+Cor)/Cap"
         temp[RideDataEnum.batteryVolt] = "Volt"
         temp[RideDataEnum.batteryWattsHr] = "Watts*Hr"
-        temp[RideDataEnum.acceleration] = "acceleration"
         temp[RideDataEnum.consumptionA] = "A"
         temp[RideDataEnum.consumptionAH] = "AH"
         temp[RideDataEnum.consumptionWatts] =  "Watts"
@@ -148,7 +147,7 @@ class DisplayPreference: Codable {
         temp[RideDataEnum.gpsLongitude] = "Degre"
 
         if setup.iPhoneEnum == IPhoneEnum.metric {
-            temp[RideDataEnum.gpsSpeed] = "km/h"
+            temp[RideDataEnum.gpsSpeed] = "m/sec"
         }
         else {
             temp[RideDataEnum.gpsSpeed] = "m/h"
@@ -204,12 +203,12 @@ class DisplayPreference: Codable {
     func precisionDefault () -> [RideDataEnum: Int]{
         var temp = [RideDataEnum: Int]()
         
+        temp[RideDataEnum.acceleration] = 1
         temp[RideDataEnum.auxD] = 0
         temp[RideDataEnum.batteryAh] = 1
         temp[RideDataEnum.batteryLevelPercent] = 0
         temp[RideDataEnum.batteryVolt] = 2
         temp[RideDataEnum.batteryWattsHr] = 0
-        temp[RideDataEnum.acceleration] = 1
         temp[RideDataEnum.consumptionA] = 2
         temp[RideDataEnum.consumptionAH] = 1
         temp[RideDataEnum.consumptionWatts] =  0
@@ -376,21 +375,21 @@ class DisplayPreference: Codable {
         var myCodableColor = ColorCodable(from: localColor)
         temp[RideDataEnum.auxD] = myCodableColor
         
-        localColor = Color.yellow
+        localColor = Color.yellow // BATTERY
         myCodableColor = ColorCodable(from: localColor)
         temp[RideDataEnum.batteryAh] = myCodableColor
         temp[RideDataEnum.batteryVolt] = myCodableColor
         temp[RideDataEnum.batteryWattsHr] = myCodableColor
         temp[RideDataEnum.batteryLevelPercent] = myCodableColor
         
-        localColor = Color.red
+        localColor = Color.red      // CONSUMPTION
         myCodableColor = ColorCodable(from: localColor)
         temp[RideDataEnum.consumptionA] = myCodableColor
         temp[RideDataEnum.consumptionAH] = myCodableColor
         temp[RideDataEnum.consumptionWatts] =  myCodableColor
         temp[RideDataEnum.consumptionWattsHr] = myCodableColor
         
-        localColor = Color.blue
+        localColor = Color.blue     // GPS
         myCodableColor = ColorCodable(from: localColor)
         temp[RideDataEnum.gpsDateTime] = myCodableColor
         temp[RideDataEnum.gpsDirection] = myCodableColor
@@ -408,6 +407,7 @@ class DisplayPreference: Codable {
         
         localColor = Color.white
         myCodableColor = ColorCodable(from: localColor)
+        temp[RideDataEnum.acceleration] = myCodableColor
         temp[RideDataEnum.date] = myCodableColor
         temp[RideDataEnum.distance] = myCodableColor
         temp[RideDataEnum.flag] = myCodableColor

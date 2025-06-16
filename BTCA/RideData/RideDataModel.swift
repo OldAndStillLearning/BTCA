@@ -215,12 +215,12 @@ class RideDataModel {
     
     static func typeFromID(_ id: Int) -> RideDataEnum {
         switch id {
-        case 0 : return RideDataEnum.auxD
-        case 1 : return RideDataEnum.batteryAh
-        case 2 : return RideDataEnum.batteryLevelPercent
-        case 3 : return RideDataEnum.batteryVolt
-        case 4 : return RideDataEnum.batteryWattsHr
-        case 5 : return RideDataEnum.acceleration
+        case 0 : return RideDataEnum.acceleration
+        case 1 : return RideDataEnum.auxD
+        case 2 : return RideDataEnum.batteryAh
+        case 3 : return RideDataEnum.batteryLevelPercent
+        case 4 : return RideDataEnum.batteryVolt
+        case 5 : return RideDataEnum.batteryWattsHr
         case 6 : return RideDataEnum.consumptionA
         case 7 : return RideDataEnum.consumptionAH
         case 8 : return RideDataEnum.consumptionWatts

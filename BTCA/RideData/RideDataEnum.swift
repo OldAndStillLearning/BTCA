@@ -11,12 +11,12 @@ enum RideDataEnum:String, Codable, CaseIterable, Identifiable {
     var id: Int { rawValue.hashValue }
     
     case
+    acceleration = "acceleration",
     auxD = "auxD",
     batteryAh = "batteryAh",
     batteryLevelPercent = "batteryLevelPercent",
     batteryVolt = "batteryVolt",
     batteryWattsHr = "batteryWattsHr",
-    acceleration = "acceleration",
     consumptionA = "consumptionA",
     consumptionAH = "consumptionAH",
     consumptionWatts = "consumptionWatts",
@@ -46,12 +46,12 @@ enum RideDataEnum:String, Codable, CaseIterable, Identifiable {
     
     var intValue: Int {
         switch self {
-        case .auxD : return 0
-        case .batteryAh : return 1
-        case .batteryLevelPercent : return 2
-        case .batteryVolt : return 3
-        case .batteryWattsHr : return 4
-        case .acceleration : return 5
+        case .acceleration : return 0
+        case .auxD : return 1
+        case .batteryAh : return 2
+        case .batteryLevelPercent : return 3
+        case .batteryVolt : return 4
+        case .batteryWattsHr : return 5
         case .consumptionA : return 6
         case .consumptionAH : return 7
         case .consumptionWatts : return 8
@@ -86,12 +86,12 @@ enum RideDataEnum:String, Codable, CaseIterable, Identifiable {
     var nameText: String {
         switch self {
             
+        case .acceleration: return "acceleration"
         case .auxD: return "auxD"
         case .batteryAh: return "batteryAh"
         case .batteryLevelPercent: return "batteryLevelPercent"
         case .batteryVolt: return "batteryVolt"
         case .batteryWattsHr: return "batteryWattsHr"
-        case .acceleration: return "acceleration"
         case .consumptionA: return "consumptionA"
         case .consumptionAH: return "consumptionAH"
         case .consumptionWatts: return "consumptionWatts"
@@ -125,7 +125,7 @@ enum RideDataEnum:String, Codable, CaseIterable, Identifiable {
         var isNumericFloatOrDouble: Bool {
             switch self {
                 // Float types
-            case .auxD, .batteryAh, .batteryLevelPercent, .batteryVolt, .batteryWattsHr,
+            case .acceleration, .auxD, .batteryAh, .batteryLevelPercent, .batteryVolt, .batteryWattsHr,
                     .consumptionA, .consumptionAH, .consumptionWatts, .consumptionWattsHr,
                     .distance, .pasTorque, .rpm, .solarProductionA, .solarProductionAH,
                     .solarProductionWatts, .solarProductionWattsHr, .speed,
@@ -160,12 +160,12 @@ enum RideDataEnum:String, Codable, CaseIterable, Identifiable {
         let line = [
             RideDataEnum.date.nameText,
             RideDataEnum.gpsDateTime.nameText,
+            RideDataEnum.acceleration.nameText,
             RideDataEnum.auxD.nameText,
             RideDataEnum.batteryAh.nameText,
             RideDataEnum.batteryLevelPercent.nameText,
             RideDataEnum.batteryVolt.nameText,
             RideDataEnum.batteryWattsHr.nameText,
-            RideDataEnum.acceleration.nameText,
             RideDataEnum.consumptionA.nameText,
             RideDataEnum.consumptionAH.nameText,
             RideDataEnum.consumptionWatts.nameText,
