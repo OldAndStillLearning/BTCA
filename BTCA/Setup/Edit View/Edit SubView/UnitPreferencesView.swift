@@ -56,20 +56,20 @@ struct UnitPreferencesView: View {
                 metricOrImperialChanged()
             }
             
-            Text("")
-            Text("")
-            Text("Location unit")
-            
-            Picker("", selection: $setup.iPhoneEnum) {
-                ForEach(IPhoneEnum.allCases) { unit in
-                    Text(unit.rawValue.capitalized).tag(unit)
-                }
-            }
-            .pickerStyle(.segmented)
-            .onChange(of: setup.iPhoneEnum) {
-                setup.save()
-                metricOrImperialChanged()
-            }
+//            Text("")
+//            Text("")
+//            Text("Location unit")
+//            
+//            Picker("", selection: $setup.iPhoneEnum) {
+//                ForEach(IPhoneEnum.allCases) { unit in
+//                    Text(unit.rawValue.capitalized).tag(unit)
+//                }
+//            }
+//            .pickerStyle(.segmented)
+//            .onChange(of: setup.iPhoneEnum) {
+//                setup.save()
+//                metricOrImperialChanged()
+//            }
             
             
             

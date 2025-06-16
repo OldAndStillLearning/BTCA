@@ -133,25 +133,29 @@ class DisplayPreference: Codable {
         
         temp[RideDataEnum.flag] = " "
         temp[RideDataEnum.gpsDateTime] = "Date-Time"
-        temp[RideDataEnum.gpsDirection] = "Heading"
+        temp[RideDataEnum.gpsDirection] = "Degrees to true north"
         
-        if setup.iPhoneEnum == IPhoneEnum.metric {
-            temp[RideDataEnum.gpsElevation] = "meter"
-        }
-        else {
-            temp[RideDataEnum.gpsElevation] = "feet"
-        }
+        temp[RideDataEnum.gpsElevation] = "meter"
+
+//        if setup.iPhoneEnum == IPhoneEnum.metric {
+//            temp[RideDataEnum.gpsElevation] = "meter"
+//        }
+//        else {
+//            temp[RideDataEnum.gpsElevation] = "feet"
+//        }
         
 
-        temp[RideDataEnum.gpsLatitude] = "Degre"
-        temp[RideDataEnum.gpsLongitude] = "Degre"
+        temp[RideDataEnum.gpsLatitude] = "Degrees"
+        temp[RideDataEnum.gpsLongitude] = "Degrees"
 
-        if setup.iPhoneEnum == IPhoneEnum.metric {
-            temp[RideDataEnum.gpsSpeed] = "m/sec"
-        }
-        else {
-            temp[RideDataEnum.gpsSpeed] = "m/h"
-        }
+        temp[RideDataEnum.gpsSpeed] = "m/sec"
+
+//        if setup.iPhoneEnum == IPhoneEnum.metric {
+//            temp[RideDataEnum.gpsSpeed] = "m/sec"
+//        }
+//        else {
+//            temp[RideDataEnum.gpsSpeed] = "m/h"
+//        }
 
         temp[RideDataEnum.human] = "N*m"
         temp[RideDataEnum.pasTorque] = "N*m"
