@@ -11,7 +11,7 @@ struct FirmwarePickerSectionView: View {
     
     init() {
 #if os(iOS) || os(iPadOS) || os(visionOS)  || os(MacCatalyst)
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.green], for: .normal)
 #endif
     }
     

@@ -11,6 +11,12 @@ import SwiftUI
 struct UnitPreferencesView: View {
     @Environment(BTCAViewModel.self) var viewModel
     
+    init() {
+#if os(iOS) || os(iPadOS) || os(visionOS)  || os(MacCatalyst)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.green], for: .normal)
+#endif
+    }
+    
     var body: some View {
         @Bindable var setup = viewModel.setup
         
@@ -68,7 +74,7 @@ struct UnitPreferencesView: View {
             
             
         }
-        .buttonStyle3Green()
+        .buttonStyleGreen()
 
     }
     
