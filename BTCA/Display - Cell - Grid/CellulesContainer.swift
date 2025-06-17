@@ -42,7 +42,7 @@ class CellulesContainer {
             Cellule(id: 15, position: 25, valueToDisplay: "15" , color: .blue, title: "gpsElevation", unit: "gps ele"),
             Cellule(id: 16, position: 26, valueToDisplay: "16" , color: .blue, title: "gpsLatitude", unit: "gps lat"),
             Cellule(id: 17, position: 27, valueToDisplay: "17" , color: .blue, title: "gpsLongitude", unit: "gps long"),
-            Cellule(id: 18, position: 28, valueToDisplay: "18" , color: .blue, title: "gpsSpeed", unit: "gps km/hr"),
+            Cellule(id: 18, position: 28, valueToDisplay: "18" , color: .blue, title: "gpsSpeed", unit: "gps m/s"),
             Cellule(id: 19, position: 30, valueToDisplay: "19" , color: .white, title: "human", unit: "N*m"),
             Cellule(id: 20, position: 31, valueToDisplay: "20" , color: .white, title: "pasTorque", unit: "N*m"),
             Cellule(id: 21, position: 14, valueToDisplay: "21" , color: .white, title: "RPM", unit: "rpm"),
