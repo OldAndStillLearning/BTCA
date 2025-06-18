@@ -37,7 +37,9 @@ class BTCAViewModel {
     var buttonToGridIsEnable = true
     
     
-    //    var displayCanUpdate: Bool = true        // use for Drag and Drop // after testing -> it is not needed but maybe shuld stay there
+    // use for Drag and Drop BUT after testing -> it is not needed but maybe should stay there
+    //    var displayCanUpdate: Bool = true
+    
     
     
     init () {
@@ -49,21 +51,40 @@ class BTCAViewModel {
     
     
     
-    // Bluetooth Manager send a line of data
+    
+    
+    
+    //*******************************************************************************************************
+    //**
+    //**                newBluetoothDataReceived
+    //**
+    //**                    Bluetooth Manager send a line of data
+    //**
+    //*******************************************************************************************************
     func newBluetoothDataReceived(_ oneLineArray: [String]) {
         var aRideData = RideDataModel()
         
         aRideData = rideDataPreparation!.crunchANewLine(oneLineArray)
         
+        
+        //________________________________________
+        //--
+        //--        1- insert in Database
+        //--
+        //________________________________________
         if !simulationMode {
-            
-            //        1- insert in Database
             DatabaseManager.shared.bufferRideData(aRideData)
-            
-            
-            
-            // TODO: franco ce soir important 123456789
-            //        2a- Send to file in needed RAW DATA from Cycle Analyst
+        }
+        
+        
+        
+        //________________________________________
+        //--
+        //--        2- Send Fichier Manager to be save in files
+        //--
+        //________________________________________
+        //--        2a- RawData from Cycle Analyst
+        if !simulationMode {
             if setup.allowWriteCycleAnalystRawData {
                 let aDateNotime = BTCAUtility.dateForCATime(date: aRideData.date)
                 var temp = oneLineArray
@@ -71,14 +92,19 @@ class BTCAViewModel {
                 fichierManager.newLineReceived(data: temp, fileType: FileType.cycleAnalystrawData)
             }
             
-            //        2b- Send to file in needed ALL DATA calculated
+            //--        2b- All calculated Data
             if setup.allowWriteAllCalculatedData {
                 fichierManager.newLineOfAllDataReceived(rideData: aRideData, fileType: FileType.allCalculatedData)
             }
         }
         
         
-        //        3- Send To Display
+        
+        //________________________________________
+        //--
+        //--        3- Caculad
+        //--
+        //________________________________________
         //        if displayCanUpdate {         // after testing -> it is not needed but maybe shuld stay there
         let rideDataStruct = RideDataStruct(rideData: aRideData)
         let arrayToDisplay = fillRideDataDisplayCell(rideDataStruct: rideDataStruct)
@@ -93,7 +119,8 @@ class BTCAViewModel {
                 demoData[index].unit = newCellule.unit
             }
         }
-        //        }
+        
+        
     }
     
     
@@ -107,13 +134,13 @@ class BTCAViewModel {
     
     
     
-    
-    
-    //_______________________________________________________________________________________________________
-    //--
-    //-- MARK:               Step When we receive a valid Array of Data
-    //_______________________________________________________________________________________________________
-    
+    //*******************************************************************************************************
+    //**
+    //**                fillRideDataDisplayCell
+    //**
+    //**                   Prepare Cell for display
+    //**
+    //*******************************************************************************************************
     
     func fillRideDataDisplayCell(rideDataStruct: RideDataStruct) -> [Cellule]{
         var lesCells: [Cellule] = []
@@ -146,7 +173,10 @@ class BTCAViewModel {
                 switch BTCAType {
                     
                     
-                    // TODO:
+                //________________________________________
+                //--
+                //--        Date
+                //________________________________________
                 case   RideDataEnum.date, RideDataEnum.gpsDateTime :
                     if let value = child.value as? Date {
                         valueToDisplay = BTCAUtility.dateToString(date: value)
@@ -154,11 +184,19 @@ class BTCAViewModel {
                     }
                     
                     
+                //________________________________________
+                //--
+                //--        Double
+                //________________________________________
                 case RideDataEnum.gpsDirection, RideDataEnum.gpsElevation, RideDataEnum.gpsLatitude, RideDataEnum.gpsLongitude, RideDataEnum.gpsSpeed :
                     if let value = child.value as? Double {
                         valueToDisplay = BTCAUtility.doubleToString(value: value, btcaVar: BTCAType, displayPreference: displayPreference)
                     }
                     
+                //________________________________________
+                //--
+                //--        String
+                //________________________________________
                 case RideDataEnum.flag :
                     if let value = child.value as? String {
                         let flag = limitFlagEnum.whichFlag(letter:value )
@@ -167,35 +205,28 @@ class BTCAViewModel {
                     }
                     
                     
+                //________________________________________
+                //--
+                //--        Int16
+                //________________________________________
                 case RideDataEnum.human :
                     if let value = child.value as? Int16 {
                         valueToDisplay = String(value)
                     }
                     
-//                  case RideDataEnum. :
-//                    if let value = child.value as? String {
-//                        //TODO: if BTCA never send Date, remove Otherwise manage here
-//                        valueToDisplay = value
-//                        valueToDisplay = "VIDE"
-//                    }
                     
-                    
-                    
-                    
-                    
-                    
-                default:                        // ALL FLOAT
+                //________________________________________
+                //--
+                //--        Float
+                //________________________________________
+                default:
                     if let value = child.value as? Float {
-                        
-                        if value == 17.4 || value == 18.1 {     //TODO: remove because just for test
-                            //                            print ("Here")
-                        }
                         valueToDisplay = BTCAUtility.floatToString(value: value, btcaVar: BTCAType, displayPreference: displayPreference)
                     }
                 }
                 
             } else {
-                print ("error")
+                print ("error in if let label = child.label {")
             }
             
             
@@ -204,6 +235,18 @@ class BTCAViewModel {
         
         return lesCells
     }
+    
+    
+    
+    
+    
+    //*******************************************************************************************************
+    //**
+    //**                A little bit like App Intent
+    //**
+    //**                   Call from ViewModel Sub Class
+    //**
+    //*******************************************************************************************************
     
     
     
