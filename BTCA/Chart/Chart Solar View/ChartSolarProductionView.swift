@@ -15,7 +15,7 @@ struct ChartSolarProductionView: View {
 
     @Binding var path: [Screen]
     
-    @State private var startDate: Date = Calendar.current.date(byAdding: .day, value: -30, to: Date()) ?? Date()
+    @State private var startDate: Date = Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date()
     @State private var endDate: Date = Date()
     @State private var isLoading = false
     @State private var zoomFactor: Double = 1
@@ -63,6 +63,20 @@ struct ChartSolarProductionView: View {
                     .chartYAxis {
                         AxisMarks(position: .leading)
                     }
+//                    .chartYAxisLabel("Solar Production in Watts", position: .leading)
+                    .chartYAxisLabel(position: .leading) {
+                        Text("Solar Production in Watts")
+                            .font(.title.bold())
+                            .rotationEffect(.degrees(180))
+                    }
+
+//                    func chartYAxisLabel(
+//                        _ labelKey: LocalizedStringKey,
+//                        position: AnnotationPosition = .automatic,
+//                        alignment: Alignment? = nil,
+//                        spacing: CGFloat? = nil
+//                    ) -> some View
+                    
                 }
             }
             

@@ -22,9 +22,13 @@ extension View {
             case .chartFlexibleView:
                 ChartFlexibleView(path: path)
 
+            case .chartMultipleDataView:
+                    ChartMultipleDataView(path: path)
+                
             case .deviceListView:
                 DeviceListView(path: path)
 
+            
             case .editDisplayPreferenceView:
                 EditDisplayPreferenceView(path: path)
 

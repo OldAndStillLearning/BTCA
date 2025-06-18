@@ -34,6 +34,7 @@ enum Screen: Hashable {
     case rideDataListView 
     case chartSolarProductionView
     case chartFlexibleView
+    case chartMultipleDataView
     
     case infoView
 

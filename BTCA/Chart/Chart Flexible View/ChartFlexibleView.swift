@@ -13,7 +13,7 @@ struct ChartFlexibleView: View {
     @Environment(\.modelContext) private var modelContext: ModelContext
     @Binding var path: [Screen]
     
-    @State private var startDate: Date = Calendar.current.date(byAdding: .day, value: -30, to: Date()) ?? Date()
+    @State private var startDate: Date = Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date()
     @State private var endDate: Date = Date()
     @State private var isLoading: Bool = false
     
@@ -48,7 +48,7 @@ struct ChartFlexibleView: View {
                         }
                         .padding()
                     }
-                }                   // Chart
+                }             
             }
             
             if !isLoading && rideDataList.isEmpty {
