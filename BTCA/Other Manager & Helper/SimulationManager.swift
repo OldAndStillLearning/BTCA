@@ -14,7 +14,7 @@ class SimulationManager {
     
     
 //    private var uneArray2 = "2.8833\t12.40\t0.07\t17.18\t0.0000\t0.0\t0.0\t0\t0.0\t0.00\t0.99\t0.00\t-1.1996\t-0.01\t1".components(separatedBy: "\t")
-    private var uneArray  = "2.8833\t48.14\t3.109\t17.4\t124.5333\t55.0\t77.2\t6\t3.3\t3.7\t0.99\t3.444\t23.73\t2.1\t1".components(separatedBy: "\t")
+    private var uneArray  = "2.8833\t48.14\t3.109\t17.4\t124.5333\t55.0\t77.2\t6\t3.3\t3.7\t0.99\t3.444\t2.73\t2.1\t1".components(separatedBy: "\t")
     
 //    var passe1: Bool = false
     weak var btcaViewModelWeak: BTCAViewModel?
@@ -70,7 +70,7 @@ class SimulationManager {
 //        uneArray[9] = ("3.7")           //Pos  9 - > BTCAVar.throttleIN          Float
 //        uneArray[10] = ("0.99")         //Pos 10 - > BTCAVar.throttleOut        Float
 //        uneArray[11] = ("3.444")        //Pos 11 - > BTCAVar.auxD               Float
-//        uneArray[12] = ("23.73")        //Pos 12 - > BTCAVar.solarProductionAH  Float
+//        uneArray[12] = ("2.73")        //Pos 12 - > BTCAVar.solarProductionAH  Float
 //        uneArray[13] = ("2.1")          //Pos 13 - > BTCAVar.solarProductionA   Float
 //        uneArray[14] = ("1")            //Pos 14 - > BTCAVar.flag               String
 //        

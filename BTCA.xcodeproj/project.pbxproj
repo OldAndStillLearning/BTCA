@@ -271,7 +271,7 @@
 				CODE_SIGN_ENTITLEMENTS = BTCA/BTCA.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.001;
+				CURRENT_PROJECT_VERSION = 2.002;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 358ZGS2863;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -279,9 +279,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BTCA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BTCA;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "BTCA need bluetooth to received data from Cycle Analyst";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "BTCA need it if user wand to view and save location Data";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "BTCA need it if user want to view and save location Data";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -320,7 +321,7 @@
 				CODE_SIGN_ENTITLEMENTS = BTCA/BTCA.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.001;
+				CURRENT_PROJECT_VERSION = 2.002;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 358ZGS2863;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -328,9 +329,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BTCA/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BTCA;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "BTCA need bluetooth to received data from Cycle Analyst";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "BTCA need it if user wand to view and save location Data";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "BTCA need it if user want to view and save location Data";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

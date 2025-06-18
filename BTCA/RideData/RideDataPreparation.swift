@@ -109,13 +109,31 @@ class RideDataPreparation  {
     }
     
     
-    // -> Calculated other core data Value
+   
+    
+    
+    
+    
+    //*******************************************************************************************************//
+    //**
+    //** calculateOtherBTCAVar
+    //**
+    //**        -> Calculated all others data Value
+    //**
+    //**
+    //**
+    //*******************************************************************************************************//
     func calculateOtherBTCAVar(rideData: RideDataModel) -> RideDataModel {
         
-        if weNeedToCalculateNewBatteryCorrectionAtFull {
-            // ________________________________________________
+        
+        //CALCUL - 20 - consumptionWatts
+        rideData.consumptionWatts = rideData.batteryVolt * rideData.consumptionA
 
-                
+        //CALCUL - 29 - solarProductionWatts = Value-?? batteryVolt * Value-?? solarProductionA
+        rideData.solarProductionWatts = rideData.batteryVolt * rideData.solarProductionA
+   
+        
+        if weNeedToCalculateNewBatteryCorrectionAtFull {
             // ________________________________________________
             // battLevel = (prodAh - consAh + correctionAh) / battCapacityAh
             // but here  correction is unknown and battLevel is 100% (or 1)
@@ -143,7 +161,15 @@ class RideDataPreparation  {
 
         }
         
-
+ 
+        //CALCUL - 17 - batteryAh = Value-?? solarProductionAH - Value-?? consumptionAH
+        rideData.batteryAh = rideData.solarProductionAH - rideData.consumptionAH + Float(btcaViewModelWeak.setup.batteryCapacityCorrectionAh)
+        
+        //CALCUL - 18 - batteryLevelPercent
+        rideData.batteryLevelPercent = (rideData.batteryAh   /   Float (btcaViewModelWeak.setup.batteryCapacityAh) ) * 100
+        btcaViewModelWeak.batteryPercent = rideData.batteryLevelPercent
+       
+        
         
         
         
@@ -160,9 +186,15 @@ class RideDataPreparation  {
         // _________________________________________________________________________________________
         // Consommation Wh
         //**
-        let  cWhPrev = rideDataPrevious.consumptionWattsHrPrevious           // Just to make it shorter to read
-        let  caHPrev = rideDataPrevious.consumptionAhPrevious                // Just to make it shorter to read
-        let  caHNow  = rideData.consumptionAH                                // Just to make it shorter to read
+//        let  cWhPrev = rideDataPrevious.consumptionWattsHrPrevious           // Just to make it shorter to read
+//        let  caHPrev = rideDataPrevious.consumptionAhPrevious                // Just to make it shorter to read
+//        let  caHNow  = rideData.consumptionAH                                // Just to make it shorter to read
+//        
+//        //CALCUL - 21 - consumptionWattsHr
+//        rideData.consumptionWattsHr = cWhPrev + ((caHNow - caHPrev) * VNow)         //  Wh(now) = Wh(prev) + [Ah(now) - Ah(prev)] * V(now)
+     
+        rideData.consumptionWattsHr = rideDataPrevious.consumptionWattsHrPrevious + ((rideData.consumptionAH - rideDataPrevious.consumptionAhPrevious) * rideData.batteryVolt)
+        
         
         // _________________________________________________________________________________________
         // Solar Production Wh
@@ -170,6 +202,9 @@ class RideDataPreparation  {
         let pWhPrev = rideDataPrevious.solarProductionWattsHrPrevious
         let paHPrev = rideDataPrevious.solarProductionAhPrevious
         let paHNow  = rideData.solarProductionAH
+        
+        
+        
         
         // _________________________________________________________________________________________
         // Battery Wh
@@ -185,36 +220,51 @@ class RideDataPreparation  {
         //**
         //*******************************************************************************************************z//
         
-        // data calculated -> 17 t0 32
         
-        //CALCUL - 20 - consumptionWatts = Value-02 batteryVolt   * Value-04 consumptionA
-        rideData.consumptionWatts = rideData.batteryVolt * rideData.consumptionA
         
-        //CALCUL - 29 - solarProductionWatts = Value-02 batteryVolt * Value-11 solarProductionA
-        rideData.solarProductionWatts = rideData.batteryVolt * rideData.solarProductionA
-        
-        //CALCUL - 17 - batteryAh = Value-12 solarProductionAH - Value-05 consumptionAH
-        rideData.batteryAh = rideData.solarProductionAH - rideData.consumptionAH + Float(btcaViewModelWeak.setup.batteryCapacityCorrectionAh)
-        
-        //CALCUL - 18 - batteryLevelPercent
-        rideData.batteryLevelPercent = (rideData.batteryAh   /   Float (btcaViewModelWeak.setup.batteryCapacityAh) ) * 100
-        btcaViewModelWeak.batteryPercent = rideData.batteryLevelPercent
-        
+
         //CALCUL - 21 - consumptionWattsHr
-        //TODO: remove this when you now it is ok - for average calcul
-        if caHNow < caHPrev {
-            print ("WARNING: caHNow < caHPrev")
-        }
-        rideData.consumptionWattsHr = cWhPrev + ((caHNow - caHPrev) * VNow)         //  Wh(now) = Wh(prev) + [Ah(now) - Ah(prev)] * V(now)
-        
+//        //TODO: remove this when you now it is ok - for average calcul
+//        if caHNow < caHPrev {
+//            print ("WARNING: caHNow < caHPrev")
+//        }
+
+   
         //CALCUL - 30 - solarProductionWattsHr
         rideData.solarProductionWattsHr = pWhPrev + ((paHNow - paHPrev) * VNow)     //  Wh(now) = Wh(prev) + [Ah(now) - Ah(prev)] * V(now)
         
         //CALCUL - 19 - batteryWattsHr
         rideData.batteryWattsHr = bWhPrev + ((baHNow - baHPrev) * VNow)             //  Wh(now) = Wh(prev) + [Ah(now) - Ah(prev)] * V(now)
+        print("\n\n ********************************" )
+        print(" rideData.batteryWattsHr = bWhPrev + ((baHNow - baHPrev) * VNow) ")
+        print("bWhPrev \(bWhPrev), baHNow \(baHNow), baHPrev \(baHPrev), VNow \(VNow) = rideData.batteryWattsHr \(rideData.batteryWattsHr)")
+        
         
         //CALCUL - 22 - date
         rideData.date = Date()
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+        
+        
+        
+        
+        
+
+        
+
         
         
         
