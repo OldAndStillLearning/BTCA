@@ -37,6 +37,8 @@ enum Screen: Hashable {
     case chartMultipleDataView
     
     case infoView
+    
+
 
 
 

@@ -10,7 +10,7 @@ import SwiftUI
 struct FilesPrefView: View {
     @Environment(BTCAViewModel.self) var viewModel
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    @Binding var path: [Screen]
+//    @Binding var path: [Screen]
     
     var body: some View {
         @Bindable var setup = viewModel.setup
@@ -64,6 +64,7 @@ struct FilesPrefView: View {
 }
 
 #Preview {
-    FilesPrefView(path: .constant([]))
+//    FilesPrefView(path: .constant([]))
+    FilesPrefView()
         .environment(BTCAViewModel())
 }

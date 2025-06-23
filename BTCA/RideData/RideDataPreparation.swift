@@ -141,9 +141,17 @@ class RideDataPreparation  {
             // battCapacityAh  = prodAh - consAh + correctionAH
             // so   correctionAh = battCapacityAh - prodAh + consAh
 
-            
-            let correction = Float(btcaViewModelWeak.setup.batteryCapacityAh) - rideData.solarProductionAH + rideData.consumptionAH
+//           old ways
+//           let correction = Float(btcaViewModelWeak.setup.batteryCapacityAh) - rideData.solarProductionAH + rideData.consumptionAH
 
+            // new way in testing
+            // battLevel = (battCapacityAh + prodAh - consAh + correctionAh) / battCapacityAh
+            // but here  correction is unknown and battLevel is 100% (or 1)
+            // 1 = (battCapacityAh + prodAh - consAh + correctionAh) / battCapacityAh
+            // battCapacityAh  = battCapacityAh + prodAh - consAh + correctionAh
+
+            // so   correctionAh =  consAh - prodAh
+            let correction = rideData.consumptionAH - rideData.solarProductionAH
             
             btcaViewModelWeak.setup.batteryCapacityCorrectionAh = Double(correction) // Ah
             btcaViewModelWeak.setup.save() // because we change the correction
@@ -163,7 +171,12 @@ class RideDataPreparation  {
         
  
         //CALCUL - 17 - batteryAh = Value-?? solarProductionAH - Value-?? consumptionAH
-        rideData.batteryAh = rideData.solarProductionAH - rideData.consumptionAH + Float(btcaViewModelWeak.setup.batteryCapacityCorrectionAh)
+        
+        
+// OLD        rideData.batteryAh = rideData.solarProductionAH - rideData.consumptionAH + Float(btcaViewModelWeak.setup.batteryCapacityCorrectionAh)
+        // NEW way - in testing
+        rideData.batteryAh = Float(btcaViewModelWeak.setup.batteryCapacityAh) - rideData.consumptionAH + rideData.solarProductionAH  + Float(btcaViewModelWeak.setup.batteryCapacityCorrectionAh)
+
         
         //CALCUL - 18 - batteryLevelPercent
         rideData.batteryLevelPercent = (rideData.batteryAh   /   Float (btcaViewModelWeak.setup.batteryCapacityAh) ) * 100

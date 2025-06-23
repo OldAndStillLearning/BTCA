@@ -13,6 +13,7 @@ extension View {
         self.navigationDestination(for: Screen.self) { screen in
             switch screen {
 
+ 
             case .chartListView:
                 ChartListView(path: path)
 
@@ -48,7 +49,8 @@ extension View {
                 EditUnitView()
 
             case .filesPrefView:
-                FilesPrefView(path: path)
+                FilesPrefView()
+//                FilesPrefView(path: path)
 
             case .gridView:
                 GridView(
